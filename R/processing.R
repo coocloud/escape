@@ -137,7 +137,7 @@ normalize <- function(x)
 #' @importFrom Matrix summary Matrix
 cntEval <- function(obj) {
   if (inherits(x = obj, what = "Seurat")) {
-    cnts <- obj@assays[["RNA"]]@counts
+    cnts <- GetAssayData(object = obj, assay = "RNA")
   } else if (inherits(x = obj, what = "SingleCellExperiment")) {
     cnts <- counts(obj)
   } else {
